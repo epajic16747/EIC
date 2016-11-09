@@ -19,7 +19,8 @@ III)  Bug-ovi koje ste primijetili ali niste stigli ispraviti, a znate rješenje
      
 V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u fajlu nalazi
      Folder Spirala I:
-        Folder CSS :
+     
+        Folder CSS:
           style.css -Css file sa stilovima za sve html dokumente
         
         Folder images:
