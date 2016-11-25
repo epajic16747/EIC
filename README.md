@@ -34,4 +34,30 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
           -index.html -pocetna stranica koja sadrzi najnovije dogadjaje
           -logIn.html -podstranica za login
           
-        
+ Spirala II :
+     I)Uradjeno:
+          -validacija svih polja(onemogućava se submit ako sva polja nisu validirana i ispod svakog polja koje nije validno se 
+                                 pojavljuje dugme koje ukazuje na gresku)
+          - Carousel(imaju dvije strelice koje saltaju slike na klik)
+          - localstorage(spasava sva polja nakon klika na dugme, ali prilikom ucitavanja ima bug)
+          - podstranice se ucitavaju bez reloada-a
+     II)Nije uradjeno:
+          -Dropdown meni 
+          -Meni u vidu stabla 
+          -Galerija slika
+     IV) (Bug-ovi koje ste primijetili ali ne znate rješenje):
+          -Prilikom ucitavanja iz localstoraga-a ima bug jer elementi na koje je potrebno upisati vrijednosti ne postoje jer se nalaze 
+           na drugoj podstranici koja u tom trenutku nije aktivna
+          -Carousel iz nekih razloga ne radi na mozili 
+     V) Novi folderi:
+          Folder js: 
+               -addEventLocalStorage.js -spasava i ucitava zadnji unos na formi addEvent podstranici
+               -ajaxPageLoad.js -ucitava podstranice bez realod-a, tj. unutar "siteContent"-a mijenja trenutni content sa contentom 
+                                 druge podstranice
+               -contactLocalStorage.js -spasava i ucitava zadnji unos na formi contact podstranici
+               -contactValidacijaForme.js -validira formu na contact podstranici
+               -slider.js -Carousel nista posebno
+               -validacijaAddEvent.js validira formu na addEvent podstranici
+
+
+     
