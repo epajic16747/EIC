@@ -1,0 +1,29 @@
+<div class="contactForm">
+
+ <div class="row">
+
+	<h2>Text</h2>
+	<p>Text:</p>
+	<div style="width:170px; float:left;"><p>Text</p></div>
+	<div style="width:430px; float:right;"><p><input  type="text" name="your_name" value="" id="nazivEventa" onchange="validirajNazivEventa(); konacnaValidacija();"/>
+		<input class="submit" type="submit" name="" value="GRESKA" id="A" style="display: none"/></p></div>
+	<div style="width:170px; float:left;"><p>Text</p></div>
+	<div style="width:430px; float:right;"><p><input id="datum" type="date" value="" onchange="validirajDatum();konacnaValidacija();"/>
+		<input class="submit" type="submit" name="" value="GRESKA" id="B" style="display: none"/></p></div>
+	<div style="width:170px; float:left;"><p>Text</p></div>
+	<div style="width:430px; float:right;"><p><textarea rows="3" cols="50" name="your_message" id="mainEventInfo" onchange="validirajMainEventInfo(); konacnaValidacija();"></textarea>
+		<input class="submit" type="submit" name="" value="GRESKA" id="C" style="display: none"/></p></div>
+
+	<div style="width:170px; float:left;"><p>Text</p></div>
+	<div style="width:430px; float:right;"><p><textarea rows="12" cols="60" name="your_message" id="eventInfo" onchange="validirajEventInfo(); konacnaValidacija();"></textarea>
+		<input class="submit" type="submit" name="" value="GRESKA" id="D" style="display: none"/></p></div>
+
+	<br style="clear:both;" />
+	<div style="width:170px; float:left;"><p> Select a file:</p> </div>
+	<div style="width:430px; float:right;"><p><input   type="file" name="img" id = "eventImage"/></p></div>
+	<div style="width:430px; float:right;"><p style="padding-top: 15px">
+	<br>
+	<input class="submit" type="submit" name="event_added" value="Add" onclick="saveEvent()" id="addDugme"/></p></div>
+
+ </div>
+</div>
