@@ -38,7 +38,7 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
           
           
           
-Spirala II :
+##Spirala II :
      I)Uradjeno:
           -validacija svih polja(onemogućava se submit ako sva polja nisu validirana i ispod svakog polja koje nije validno se 
                                  pojavljuje dugme koje ukazuje na gresku)
