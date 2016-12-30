@@ -1,17 +1,19 @@
-var addButton = document.getElementById('addDugme');
+/*var addButton = document.getElementById('addDugme');
 var nazivButton = document.getElementById('A');
 var datumButton = document.getElementById('B');
 var mainInfoButton = document.getElementById('C');
-var infoButton = document.getElementById('D');//Ovo gore obrisat
+var infoButton = document.getElementById('D');//Ovo gore obrisat/*/
 var naziv = false;
 var datum = false;
 var mainInfo = false;
 var info = false;
+var lokacija = false;
+var tip = false;
 
 function  validirajNazivEventa() {
 
     var poljeNazivEventa = document.getElementById('nazivEventa').value;
-    var regexNaziv = new  RegExp(/^[A-Z][a-z]{2,24}$/);
+    var regexNaziv = new  RegExp(/^^\w{3,20}\s{0,1}\w{0,20}\s{0,1}\w{0,20}$/);
     if(!regexNaziv.test(poljeNazivEventa)){
         naziv = false;
         document.getElementById('A').style.display='block';
@@ -37,12 +39,40 @@ function  validirajDatum() {
 
 }
 
+function  validirajLokacijuEventa() {
+
+    var poljeLokacijaEventa = document.getElementById('lokacijaEventa').value;
+    var regexLokacija = new  RegExp(/^\w{3,20}\s{0,1}\w{0,20}\s{0,1}\w{0,20}$/);
+    if(!regexLokacija.test(poljeLokacijaEventa)){
+        lokacija = false;
+        document.getElementById('E').style.display='block';
+    }
+    else{
+        lokacija = true;
+        document.getElementById('E').style.display='none';
+    }
+}
+
+function  validirajTipEventa() {
+
+    var poljeTipEventa = document.getElementById('tipEventa').value;
+    var regexTip = new  RegExp(/^\w{3,20}\s{0,1}\w{0,20}$/);
+    if(!regexTip.test(poljeTipEventa)){
+        tip = false;
+        document.getElementById('F').style.display='block';
+    }
+    else{
+        tip = true;
+        document.getElementById('F').style.display='none';
+    }
+}
+
 function  validirajMainEventInfo() {
 
     var poljeMainEventInfo = document.getElementById('mainEventInfo').value;
-    var regexEventInfo = new RegExp(/^[a-zA-Z0-9_]*$/);
+    var regexMainEventInfo = new RegExp(/^[\s \w]{3,100}$/);
 
-    if(!regexEventInfo.test(poljeMainEventInfo)){
+    if(!regexMainEventInfo.test(poljeMainEventInfo)){
         mainInfo = false;
         document.getElementById('C').style.display = 'block';
     }
@@ -56,7 +86,7 @@ function  validirajMainEventInfo() {
 function  validirajEventInfo() {
 
     var poljeEventInfo = document.getElementById('eventInfo').value;
-    var regexEventInfo = new RegExp(/^[a-zA-Z0-9_]*$/);
+    var regexEventInfo = new RegExp(/^[\s \w \.]{3,1000}$/);
     if(!regexEventInfo.test(poljeEventInfo )){
        info = false;
         document.getElementById('D').style.display = 'block';
@@ -68,12 +98,31 @@ function  validirajEventInfo() {
 
 }
 function  konacnaValidacija() {
-    if(naziv && info && datum && mainInfo){
+    console.log(naziv);
+    console.log(info);
+    console.log(datum);
+    console.log(mainInfo);
+    console.log(lokacija);
+    console.log(tip);
+    if(naziv && info && datum && mainInfo && lokacija && tip){
         document.getElementById('addDugme').disabled = false;
     }
     else {
-        document.getElementById('addDugme').disabled = true;
+        document.getElementById('addDugme').disabled = false;
     }
 
-}
-
+}/*
+function validirajSve(){
+    validirajNazivEventa();
+    validirajDatum();
+    validirajLokacijuEventa();
+    validirajTipEventa();
+    validirajMainEventInfo();
+    validirajEventInfo();
+        console.log(naziv);
+    console.log(info);
+    console.log(datum);
+    console.log(mainInfo);
+    console.log(lokacija);
+    console.log(tip);
+}*/

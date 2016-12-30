@@ -1,0 +1,8 @@
+<root>
+	<admin>
+		<username>admin</username>
+		<password>admin</password>
+	</admin>
+	<users></users>
+
+</root>
