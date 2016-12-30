@@ -65,3 +65,33 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
 
 
      
+##Spirala III:
+         I)Uradjeno:
+          -Serializacija svih podataka u XML fajl
+          -Omogucen je unos i prikaz unesenih podataka
+          -Za brisanje ima samo php file, ali nije jos uvezano
+          -validacije ima malo, ali treba jos da se doradi
+          -Obradjen XSS
+          -Postoji admin korisnik
+          -Moze se skinut csv file
+          -Moze se skinut pdf file
+          -Ima opcija za pretragu 
+          -Deployment(cekam jos na mail)
+     II)Nije uradjeno:
+          -Brisanje i izmjena podataka
+          -Froma contact je ostala ista kao na prethodnoj spirali u modifikaciju js validacije
+     IV) (Bug-ovi koje ste primijetili ali ne znate rješenje):
+          -Kada se skida csv file mogu samo skinuti sa dvije kolone
+     V) Novi folderi:
+          Folder fpdf za fpdf biblioteku
+          Folder images ima novi podfolder za eventImages gdje su slike koje se unose preko forme
+          Folder js: -login.js -preko kojeg se pojavljuje forma za login
+                     -ajaxSearch -za pretragu eventova
+          Folder pages :-sve stare html stranice su sada php
+                        -deleteEventPage.php-podstranica za brisanje podataka
+                        -editEvent.php -podstranica za editovanje podataka
+                        -AllEvents.
+          
+
+
+     
