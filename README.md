@@ -81,7 +81,7 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
           -Brisanje i izmjena podataka
           -Froma contact je ostala ista kao na prethodnoj spirali u modifikaciju js validacije
      IV) (Bug-ovi koje ste primijetili ali ne znate rješenje):
-          -Kada se skida csv file mogu samo skinuti sa dvije kolone
+          -Kada se skida csv file mogu samo skinuti sa dvije kolone(zakomentarisani su dijelovi zbog kojih ne moze vise kolona    da          bude, tj. moze ,ali onda samo ima jedan red sa podacima)
      V) Novi folderi:
           Folder fpdf za fpdf biblioteku
           Folder images ima novi podfolder za eventImages gdje su slike koje se unose preko forme
@@ -90,7 +90,19 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
           Folder pages :-sve stare html stranice su sada php
                         -deleteEventPage.php-podstranica za brisanje podataka
                         -editEvent.php -podstranica za editovanje podataka
-                        -AllEvents.
+                        -AllEvents.xml -sadrzi u xml-u podatke o eventima
+                        -downloads.php -podstranica za skidaje podataka(PDF i CSV files)
+                        -user.xml -user name i pw od admina
+                        -login.php -php kod za login admina
+                        -logout.php -php kod za logout admina
+                        -search.php -za pretragu podataka koji se nalaze u AllEvents.xml
+                        -deleteEvent.php - php kod za brisanje podataka iz AllEvents.xml
+                        -downloadAllEventsCSV.php -za download CSV podataka(zakomentarisani su dijelovi zbog kojih ne moze vise kolona                da bude, tj. moze ,ali onda samo ima jedan red sa podacima)
+                        -downloadAllEventsFullInfoPDF.php -za download PDF podataka
+          Folder html : -stare html stranice
+          
+          Deployment : 
+                        
           
 
 
