@@ -3,7 +3,7 @@
 	if(isset($_SESSION['username']))
 	{
 
-		$xml = simplexml_load_file('AllEvents.xml') or die("Error: Xml dokument je prazan");
+		$xml = simplexml_load_file('pages/AllEvents.xml') or die("Error: Xml dokument je prazan");
 		$csvFile = fopen('allEvents.csv', 'w');	
 		$arrayList = array();
 		$firstRow = array($xml->eventInfo->name->getName(),$xml->eventInfo->date->getName());//,$xml->eventInfo->location->getName(),$xml->eventInfo->type->getName(),

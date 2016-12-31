@@ -1,7 +1,7 @@
 <?php
 	if(isset($_POST['addEventButton'])){
 		$xml = new  DomDocument("1.0", "UTF-8");
-		$xml->load('AllEvents.xml');
+		$xml->load('pages/AllEvents.xml');
 
 		$eName =  $_POST['eventName'];
 
@@ -10,6 +10,6 @@
 			$node->parentNode->removeChild($node);
 		}
 		$xml->formatoutput = true;
-		$xml->save('AllEvents.xml');
+		$xml->save('pages/AllEvents.xml');
 	}
 ?>	

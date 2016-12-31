@@ -13,7 +13,7 @@
           $usernameInputValue = $_POST['username'];
           $passwordInputValue = $_POST['password'];
 
-         $xml = simplexml_load_file('users.xml') or die("Error: Xml dokument je prazan");
+         $xml = simplexml_load_file('pages/users.xml') or die("Error: Xml dokument je prazan");
          $userName = (string)$xml->admin->username;
          $passWord =  (string)$xml->admin->password; 
 

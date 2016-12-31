@@ -5,7 +5,7 @@
 		$searchResultLower  = strtolower($searchResult);
 		$searchResultArray = explode(" ", $searchResultLower);  //Razbijamo na niz koji se sastoji od kljucnih rijeci
 
-			$xml = simplexml_load_file('AllEvents.xml') or die("Error: Xml dokument je prazan");
+			$xml = simplexml_load_file('pages/AllEvents.xml') or die("Error: Xml dokument je prazan");
 			$brojac = 0;
 			foreach ($xml->eventInfo as $event) {
 				
@@ -29,7 +29,7 @@
 
 										<div class="event_image">
 										<div class="column one">
-											<img src="../images/eventImages/'.$event->eventImage.'"/>
+											<img src="images/eventImages/'.$event->eventImage.'"/>
 										</div>
 										</div>
 										<div class="main_info">
