@@ -22,7 +22,7 @@ function showResult()
 		}
 
 
-		ajax.open("GET", "search.php?searchInput="+input);
+		ajax.open("GET", "pages/search.php?searchInput="+input);
 		ajax.send();
 	}
 

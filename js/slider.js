@@ -11,5 +11,5 @@ function Carousel(x){
 	if(brojac == 0 ){
 		brojac = brojSlika;
 	}
-    sliderImages.src="../images/carousel/img" + brojac +".jpg";
+    sliderImages.src="images/carousel/img" + brojac +".jpg";
 }
