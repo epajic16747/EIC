@@ -1,7 +1,7 @@
 
 html{
 	height: 100%;
-	background: transparent url(images/background-image.jpg) no-repeat center center fixed;
+	background: transparent url(../images/background-image.jpg) no-repeat center center fixed;
 	background-size: cover;
 }
 

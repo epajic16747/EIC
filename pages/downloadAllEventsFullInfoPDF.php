@@ -1,11 +1,11 @@
 <?php
     
     session_start();
-    require("fpdf/fpdf.php");
+    require("../fpdf/fpdf.php");
     if(isset($_SESSION['username']))
     {
 
-        $xml = simplexml_load_file('pages/AllEvents.xml') or die("Error: Xml dokument je prazan");
+        $xml = simplexml_load_file('AllEvents.xml') or die("Error: Xml dokument je prazan");
         $arrayList = array();
         
 

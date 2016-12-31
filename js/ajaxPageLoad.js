@@ -19,7 +19,7 @@ allEvents.onclick = function(){
         }
     }
 
-    ajax.open("GET", "pages/allEvents.php", true);
+    ajax.open("GET", "../pages/allEvents.html", true);
     ajax.send();
 }
 
@@ -31,7 +31,7 @@ addEvent.onclick = function(){
         }
     }
 
-    ajax.open("GET", "pages/addEvent.php", true);
+    ajax.open("GET", "../pages/addEvent.html", true);
     ajax.send();
 }
 
@@ -43,7 +43,7 @@ about.onclick = function(){
         }
     }
 
-    ajax.open("GET", "pages/about.php", true);
+    ajax.open("GET", "../pages/about.html", true);
     ajax.send();
 }
 
@@ -55,7 +55,7 @@ contact.onclick = function(){
         }
     }
 
-    ajax.open("GET", "pages/contact.php", true);
+    ajax.open("GET", "../pages/contact.html", true);
     ajax.send();
 }
 
