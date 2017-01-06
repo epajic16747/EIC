@@ -101,7 +101,7 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
                         -downloadAllEventsFullInfoPDF.php -za download PDF podataka
           Folder html : -stare html stranice
           
-          Deployment : 
+          Deployment : http://eic16747-tesla23.44fs.preview.openshiftapps.com/pages
                         
           
 
