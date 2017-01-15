@@ -21,17 +21,17 @@
 					<ul class="menu">
 						<li><a href="index.php">Home</a></li>
 						<li><a href="allEvents.php">All Events</a></li>
-						
 						<li><a href="about.php">About</a></li>
 						<li><a href="contact.php">Contact</a></li>
+						<li><a href="registration.php">Registration</a></li>
 						<?php
 							if(isset($_SESSION['username']))
 				            {
-				                
 				                print '<li><a href="addEvent.php">Add Event</a></li>
 				                	   <li><a href="deleteEventPage.php">Delete Event</a></li>
 				                	   <li><a href="editEvent.php">Change Event</a></li>
-				                	   <li><a href="downloads.php">Downloads</a></li>';
+				                	   <li><a href="downloads.php">Downloads</a></li>
+				                	   <li><a href="rate.php">Rate</a></li>';
 				            }
 						?>
 					</ul>
@@ -87,6 +87,45 @@
 			<div id= "events">
 			<?php
 
+			$veza = new PDO ("mysql:dbname=eic;host=localhost;charset=utf8", "admin" ,"admin");
+			$veza->exec("set names utf8");
+            $rezultat = $veza->query("SELECT korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image FROM event");
+
+			if($rezultat ->rowCount() == 0){
+
+
+					echo "<h1>Trenutno nema evenata!</h1><br>";	
+
+			}       
+			else{
+				foreach ($rezultat as $event) {
+					print '<div class="event">
+							<h2>'.$event['eventName'].'</h2>
+								<div class="row">
+								<div class="image-eventInfo">
+
+									<div class="event_image">
+									<div class="column one">
+										<img src="../images/eventImages/'.$event['image'].'"/>
+									</div>
+									</div>
+									<div class="main_info">
+									<div class="column three">
+										<p>'.$event['mainEventInfo'].'</p>
+										<br>
+										<p> Event date: '.$event['date'].' </p>
+										<br>
+										<p> Event location: '.$event['location'].' </p>
+										<br>
+										<p> Event type:  '.$event['type'].'</p>
+									</div>
+									</div>
+								</div>
+								</div>
+							</div>';
+				}
+			}     
+/*
 				$xml = simplexml_load_file('AllEvents.xml') or die("Error: Xml dokument je prazan");
 		
 				foreach ($xml->eventInfo as $event) {
@@ -115,7 +154,7 @@
 								</div>
 							</div>';
 				}
-			
+			*/
 			?>
 			</div>
 

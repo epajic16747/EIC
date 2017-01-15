@@ -21,17 +21,17 @@
 					<ul class="menu">
 						<li><a href="index.php">Home</a></li>
 						<li><a href="allEvents.php">All Events</a></li>
-						
 						<li><a href="about.php">About</a></li>
 						<li><a href="contact.php">Contact</a></li>
+						<li><a href="registration.php">Registration</a></li>
 						<?php
 							if(isset($_SESSION['username']))
 				            {
-				                
 				                print '<li><a href="addEvent.php">Add Event</a></li>
-				                	   <li><a href="addEvent.php">Delete Event</a></li>
-				                	   <li><a href="addEvent.php">Change Event</a></li>
-				                	   <li><a href="addEvent.php">Izvjestaji</a></li>';
+				                	   <li><a href="deleteEventPage.php">Delete Event</a></li>
+				                	   <li><a href="editEvent.php">Change Event</a></li>
+				                	   <li><a href="downloads.php">Downloads</a></li>
+				                	   <li><a href="rate.php">Rate</a></li>';
 				            }
 						?>
 					</ul>

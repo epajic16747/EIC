@@ -21,17 +21,17 @@
 					<ul class="menu">
 						<li><a href="index.php">Home</a></li>
 						<li><a href="allEvents.php">All Events</a></li>
-						
 						<li><a href="about.php">About</a></li>
 						<li><a href="contact.php">Contact</a></li>
+						<li><a href="registration.php">Registration</a></li>
 						<?php
 							if(isset($_SESSION['username']))
 				            {
-				                
 				                print '<li><a href="addEvent.php">Add Event</a></li>
 				                	   <li><a href="deleteEventPage.php">Delete Event</a></li>
 				                	   <li><a href="editEvent.php">Change Event</a></li>
-				                	   <li><a href="downloads.php">Downloads</a></li>';
+				                	   <li><a href="downloads.php">Downloads</a></li>
+				                	   <li><a href="rate.php">Rate</a></li>';
 				            }
 						?>
 					</ul>
@@ -90,23 +90,23 @@
 				<h2>Adding new event</h2>
 			
 				<div style="width:170px; float:left;"><p>Event name:</p></div>
-				<div style="width:430px; float:right;"><p><input  type="text" name="eventName" value="" id="nazivEventa" onchange="validirajNazivEventa(); konacnaValidacija();" required/>
+				<div style="width:430px; float:right;"><p><input  type="text" name="eventName" value="" id="nazivEventa" onchange="validirajNazivEventa(); konacnaValidacija();" required>
 					<input class="submit" type="submit" name="" value="GRESKA" id="A" style="display: none"/></p></div>
 				<div style="width:170px; float:left; padding: 10px 0 0 0;"><p>Event date:</p></div>
-				<div style="width:430px; float:right;"><p><input id="datum" name="eventDate" type="date" value="" onchange="validirajDatum();konacnaValidacija();" required/>
+				<div style="width:430px; float:right;"><p><input id="datum" name="eventDate" type="date" value="" onchange="validirajDatum();konacnaValidacija();" required>
 					<input class="submit" type="submit" name="" value="GRESKA" id="B" style="display: none"/></p></div>
 
 				<div style="width:170px; float:left;"><p>Event location:</p></div>
-				<div style="width:430px; float:right;"><p><input  type="text" name="eventLocation" value="" id="lokacijaEventa" onchange="validirajLokacijuEventa(); konacnaValidacija(); required"/>
+				<div style="width:430px; float:right;"><p><input  type="text" name="eventLocation" value="" id="lokacijaEventa" onchange="validirajLokacijuEventa(); konacnaValidacija();" required>
 					<input class="submit" type="submit" name="" value="GRESKA" id="E" style="display: none"/></p></div>
 
 				<div style="width:170px; float:left;"><p>Event type:</p></div>
 				<div style="width:430px; float:right;"><p><input  type="text" name="eventType" value="" id="tipEventa" onchange="validirajTipEventa();
-				konacnaValidacija();" required/>
+				konacnaValidacija();" required>
 					<input class="submit" type="submit" name="" value="GRESKA" id="F" style="display: none"/></p></div>
 															
 				<div style="width:170px; float:left; padding: 20px 0 0 0;"><p>Main information of event:</p></div>
-				<div style="width:430px; float:right;"><p><textarea rows="3" cols="50" name="mainEventInf" id="mainEventInfo" onchange="validirajMainEventInfo(); konacnaValidacija(); required"></textarea>
+				<div style="width:430px; float:right;"><p><textarea rows="3" cols="50" name="mainEventInf" id="mainEventInfo" onchange="validirajMainEventInfo(); konacnaValidacija();" required></textarea>
 					<input class="submit" type="submit" name="" value="GRESKA" id="C" style="display: none"/></p></div>
 
 				<div style="width:170px; float:left; padding: 60px 0 0 0;"><p>Detail event informaion:</p></div>
@@ -143,9 +143,44 @@
 
 <?php
 	if(isset($_POST['addEventButton'])){
-		$xml = new  DomDocument("1.0", "UTF-8");
-		$xml->load('AllEvents.xml');
 
+		try{
+			$veza = new PDO ("mysql:dbname=eic;host=localhost;charset=utf8", "admin" ,"admin");
+			$veza->exec("set names utf8");
+	        	$eventUser = 1;
+	        	$eventName = htmlspecialchars($_POST['eventName']);
+	        	$eventDate = htmlspecialchars($_POST['eventDate']);
+	        	$eventLocation = htmlspecialchars($_POST['eventLocation']);
+	        	$eventType = htmlspecialchars ($_POST['eventType']);
+	        	$eventMainInfo = htmlspecialchars ($_POST['mainEventInf']);
+	        	$eventDetailInfo = htmlspecialchars($_POST['eventInf']);
+	        	$eImage = htmlspecialchars($_POST['img']);	
+
+    		    $rezultat = $veza->query("SELECT korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image 
+        							     FROM event  
+        							     WHERE korisnik = '$eventUser' AND eventName = '$eventName' AND date = '$eventDate' AND location = '$eventLocation' 
+        									    AND type = '$eventType' AND mainEventInfo = '$eventMainInfo' AND detailEventInfo= '$eventDetailInfo' 
+        									    AND image = '$eImage' ");
+
+				if($rezultat ->rowCount() == 0){
+
+	        		$veza->exec("INSERT INTO event (korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image) 
+	        		                 VALUES('$eventUser','$eventName','$eventDate','$eventLocation','$eventType','$eventMainInfo','$eventDetailInfo','$eImage')");
+					echo "Uspjesno dodan event!<br>";	
+
+				}
+				else{
+					echo "Event sa istim specifikacijama vec postoji!<br>";	
+				}
+		}
+
+		catch(PDOException $e){
+			echo $rezultat . "<br>" . $e->getMessage();
+
+		}
+	
+
+/*
 		$eName =  htmlspecialchars($_POST['eventName']);
 		$eDate =  htmlspecialchars($_POST['eventDate']);
 		$eLocation =  htmlspecialchars($_POST['eventLocation']);
@@ -175,13 +210,6 @@
 
 		$rootTag->appendChild($infoTag);
 		$xml->save('AllEvents.xml');
-
+*/
 	}
 ?>	
-
-
-
-
-
-
-

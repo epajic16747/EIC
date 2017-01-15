@@ -26,15 +26,16 @@
 						<li><a href="allEvents.php">All Events</a></li>
 						<li><a href="about.php">About</a></li>
 						<li><a href="contact.php">Contact</a></li>
+						<li><a href="registration.php">Registration</a></li>
 						
 						<?php
 							if(isset($_SESSION['username']))
 				            {
-				                
 				                print '<li><a href="addEvent.php">Add Event</a></li>
 				                	   <li><a href="deleteEventPage.php">Delete Event</a></li>
 				                	   <li><a href="editEvent.php">Change Event</a></li>
-				                	   <li><a href="downloads.php">Downloads</a></li>';
+				                	   <li><a href="downloads.php">Downloads</a></li>
+				                	   <li><a href="rate.php">Rate</a></li>';
 				            }
 						?>
 					</ul>
@@ -90,12 +91,14 @@
 
     	</div>
 			<div id="siteContent">
-				<p>Izvjestaji</p>
+				<H1>Izvjestaji i opcije</H1>
 							<?php
             if(isset($_SESSION['username']))
 	            {      
-	                print '<br><p>Download: <a href="downloadAllEventsCSV.php">All events as CSV file</a></p>';
-	                print '<br><p>Download: <a href="downloadAllEventsFullInfoPDF.php">Full events info as PDF file</a></p>';
+	                print '<br><h3>Download: <a href="downloadAllEventsCSV.php">All events as CSV file</a></h3>';
+	                print '<br><h3>Download: <a href="downloadAllEventsFullInfoPDF.php">Full events info as PDF file</a></h3>';
+	                print '<br><hr>XML to mySQL(update database): <a href="xmlTODB.php">XML TO MYSQL</a></h3>';
+	        
 	            }
             ?>
 				<!--<script type="text/javascript" src="../js/ajaxPageLoad.js"></script>-->
@@ -109,10 +112,11 @@
 			</div><!--close siteContent-->
 		</div>
 		<div class="footer">  
-			<a href=index.html >WT project v3.0 Spirala I </a> 
+			<a href=index.php >WT project v4.0 Spirala IV </a> 
 		</div><!--close footer-->	
 	</div>		
 
 </BODY>
 
 </HTML>
+
