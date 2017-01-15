@@ -103,6 +103,32 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
           
           Deployment : http://eic16747-tesla23.44fs.preview.openshiftapps.com/pages
                         
+                        
+
+##Spirala IV:
+         I)Uradjeno:
+          -Sql baza 4 tabele od kojih su 3 povezane
+          -Dodane su 2 nove forme 
+          -Postoji link koji prebacuje sve XML fajlove na bazu 
+          -Podaci za event-ove se cuvaju i kupe iz baze
+
+     II)Nije uradjeno:
+          -Deployment(bice sutra nekad)
+          -Web serbis(sutra takodjer)
+     IV) (Bug-ovi koje ste primijetili ali ne znate rješenje):
+          -/
+     V) Novi folderi:
+          Folder phpMyAdmin za bazu
+
+                     
+          Folder pages :-registration.php
+                        -EventRates.xml(zbog dodavanja nove forme)
+                        -rate.php
+                        -xmlTODB.php
+                        -AllUsers.xml(zbog nove forme)
+          eic.sql (baza)
+          
+          Deployment : http://eic16747-tesla23.44fs.preview.openshiftapps.com/pages (stari link)
           
 
 
