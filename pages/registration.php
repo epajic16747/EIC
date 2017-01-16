@@ -130,6 +130,41 @@
 </HTML>
 
 <?php
+
+	if(isset($_POST['addUserButton'])){
+
+		try{
+			$veza = new PDO ("mysql:dbname=eic;host=localhost;charset=utf8", "admin" ,"admin");
+			$veza->exec("set names utf8");
+
+			$eUserName =  htmlspecialchars($_POST['userName']);
+			$eUserMail =  htmlspecialchars($_POST['userEmail']);
+			$eUserPassword =  htmlspecialchars($_POST['userPassword']);
+
+		    $rezultat = $veza->prepare("SELECT username, email, password FROM korisnik WHERE username=? AND email=? 
+		    	AND password=? ");
+
+		    $rezultat->execute(array($eUserName,$eUserMail ,$eUserPassword));
+			if($rezultat ->fetch() == null){
+
+        		$rezultat = $veza->prepare("INSERT INTO korisnik (username,email,password) VALUES (:username, :email, :password)");
+        		$rezultat->execute(array("username"=>$eUserName,"email"=>$eUserMail,"password"=>$eUserPassword));
+
+				echo "Uspjesno dodan korisnik!!<br>";	
+
+			}
+			else{
+				echo "Korisnik vec postoji!<br>";	
+			}
+		}
+
+		catch(PDOException $e){
+			echo $rezultat . "<br>" . $e->getMessage();
+
+		}
+
+
+/*
 	if(isset($_POST['addUserButton'])){
 		$xml = new  DomDocument("1.0", "UTF-8");
 		$xml->load('AllUsers.xml');
@@ -151,10 +186,9 @@
 			$infoTag->appendChild($userMail);
 			$infoTag->appendChild($userPassword);
 
-
 		$rootTag->appendChild($infoTag);
 		$xml->save('AllUsers.xml');
-
+*/
 	}
 ?>	
 

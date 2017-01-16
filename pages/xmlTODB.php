@@ -15,16 +15,21 @@
 	        	$email = $user->email;
 	        	$password = $user->password;
 
-				$rezultat = $veza->query("SELECT username, email, password FROM korisnik WHERE username='$name' AND email='$email' AND password='$password' ");
+			    $rezultat = $veza->prepare("SELECT username, email, password FROM korisnik WHERE username=? AND email=? 
+			    	AND password=? ");
 
-				if($rezultat ->rowCount() == 0){
+			    $rezultat->execute(array($name,$email,$password));
 
-					$veza->exec("INSERT INTO korisnik (username,email,password) VALUES ('$name','$email','$password') ");
-					echo "User added to database!<br>";	
+				if($rezultat ->fetch() == null){
+
+	        		$rezultat = $veza->prepare("INSERT INTO korisnik (username,email,password) VALUES (:username, :email, :password)");
+	        		$rezultat->execute(array("username"=>$name,"email"=>$email,"password"=>$password));
+
+					echo "User added to database!v1<br>";	
 
 				}
 				else{
-					echo "User already in database!<br>";	
+					echo "User already in database!v1<br>";	
 				}
 			}
 
@@ -42,21 +47,25 @@
 	        	$eImage = $event ->eventImage;
 	        	//	echo "Bio sam unutar forach za event!<br>";
 	        	//Provjeravamo da li u bazi postoji ovaj event za odredjenog korisnika(ovde treba drugaciji query koji ce se povezati na 2 tabele i onda testirari sada sve ide za jednom korisnika, tj svi eventi su na jedom korisniku)
-	        	$rezultat = $veza->query("SELECT korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image 
-	        							  FROM event  
-	        							  WHERE korisnik = '$eventUser' AND eventName = '$eventName' AND date = '$eventDate' AND location = '$eventLocation' 
-	        											  AND type = '$eventType' AND mainEventInfo = '$eventMainInfo' AND detailEventInfo= '$eventDetailInfo' 
-	        											  AND 	image = '$eImage' ");
+    		    $rezultat = $veza->prepare("SELECT korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image 
+        							     FROM event  
+        							     WHERE korisnik=? AND eventName =? AND date =? AND location =? 
+        									    AND type =? AND mainEventInfo =? AND detailEventInfo=? 
+        									    AND image =? ");
+    		    $rezultat->execute(array($eventUser,$eventName,$eventDate,$eventLocation,$eventType,$eventMainInfo,$eventDetailInfo,$eImage));
 	        
-	        	if($rezultat ->rowCount() == 0){
-	        		$veza->exec("INSERT INTO event (korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image) 
-	        		                 VALUES('$eventUser','$eventName','$eventDate','$eventLocation','$eventType','$eventMainInfo','$eventDetailInfo','$eImage')");
+	        	if($rezultat ->fetch() == null){
 
-	        		echo "Event added to database!<br>";	
+	        		 $rezultat = $veza->prepare("INSERT INTO event (korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image) 
+	        		                 VALUES(:korisnik, :eventName, :date, :location, :type, :mainEventInfo, :detailEventInfo, :image)");
+
+	        		$rezultat->execute(array("korisnik"=>$eventUser,"eventName"=>$eventName,"date"=>$eventDate,"location"=>$eventLocation,"type"=>$eventType,"mainEventInfo"=>$eventMainInfo,"detailEventInfo"=>$eventDetailInfo,"image"=>$eImage));	
+
+	        		echo "Event added to database!v1<br>";	
 	        		
 	        	}
         		else{
-        			echo "Event already in database!<br>";	
+        			echo "Event already in database!v1<br>";	
         		}	        	
 	        }
 
@@ -70,17 +79,18 @@
 
 	        	//Potrebno je provjeriti da li postoji event, a postoji zato sto smo stavili 1 tako nije potrebno obaviti potrebe
 	        	//Treba samon neka logika da provjeri postoji li ovaj event
-	        	$rezultat = $veza->query("SELECT eventID, rateValue 
-	        							  FROM rate");
+    			$rezultat = $veza->query("SELECT eventID, rateValue 
+    							  FROM rate");
 
 	        	if($rezultat ->rowCount() == 0){
-	        		$veza->exec("INSERT INTO rate (eventID,	rateValue) VALUES('$event4Rate','$eventRateValue')");
+		    		$rezultat = $veza->prepare("INSERT INTO rate (eventID,	rateValue) VALUES(:eventID,	:rateValue)");
+		    		$rezultat->execute(array("eventID"=>$eRateName,"rateValue"=>$eRateValue));
 
-	        		echo "Rate added to database!<br>";	
+	        		echo "Rate added to database!v1<br>";	
 	        	}
 	        	
         		else{
-        			echo "Rate already in database!<br>";	
+        			echo "Rate already in database!v1<br>";	
         		}
 	        	
 	    	}

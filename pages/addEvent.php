@@ -156,21 +156,24 @@
 	        	$eventDetailInfo = htmlspecialchars($_POST['eventInf']);
 	        	$eImage = htmlspecialchars($_POST['img']);	
 
-    		    $rezultat = $veza->query("SELECT korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image 
+    		    $rezultat = $veza->prepare("SELECT korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image 
         							     FROM event  
-        							     WHERE korisnik = '$eventUser' AND eventName = '$eventName' AND date = '$eventDate' AND location = '$eventLocation' 
-        									    AND type = '$eventType' AND mainEventInfo = '$eventMainInfo' AND detailEventInfo= '$eventDetailInfo' 
-        									    AND image = '$eImage' ");
+        							     WHERE korisnik=? AND eventName =? AND date =? AND location =? 
+        									    AND type =? AND mainEventInfo =? AND detailEventInfo=? 
+        									    AND image =? ");
+    		    $rezultat->execute(array($eventUser,$eventName,$eventDate,$eventLocation,$eventType,$eventMainInfo,$eventDetailInfo,$eImage));
 
-				if($rezultat ->rowCount() == 0){
+				if($rezultat ->fetch() == null){
 
-	        		$veza->exec("INSERT INTO event (korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image) 
-	        		                 VALUES('$eventUser','$eventName','$eventDate','$eventLocation','$eventType','$eventMainInfo','$eventDetailInfo','$eImage')");
+	        		 $rezultat = $veza->prepare("INSERT INTO event (korisnik,eventName,date,location,type,mainEventInfo,detailEventInfo,image) 
+	        		                 VALUES(:korisnik, :eventName, :date, :location, :type, :mainEventInfo, :detailEventInfo, :image)");
+
+	        		$rezultat->execute(array("korisnik"=>$eventUser,"eventName"=>$eventName,"date"=>$eventDate,"location"=>$eventLocation,"type"=>$eventType,"mainEventInfo"=>$eventMainInfo,"detailEventInfo"=>$eventDetailInfo,"image"=>$eImage));	
 					echo "Uspjesno dodan event!<br>";	
 
 				}
 				else{
-					echo "Event sa istim specifikacijama vec postoji!<br>";	
+					echo "Event sa istim specifikacijama vec postoji!!<br>";	
 				}
 		}
 

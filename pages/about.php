@@ -42,7 +42,7 @@
 					<img id="slide" src="../images/carousel/img1.jpg"  alt="banner">
 					</div>
 					<div id="left_arrow"><img onClick="Carousel(-1)" class="left" src="../images/left-arrow-gray-hi.png"/></div>
-					<div id="right_arrow"><img  onClick="Carousel(1)"class="right" src="../images/left-arrow-right-hi.png"/></div>
+					<div id="right_arrow"><img  onClick="Carousel(1)" class="right" src="../images/left-arrow-right-hi.png"/></div>
 			</div><!--Close banner image(slider)-->
 			      <div id="popupWindowID" class="popupWindow">
 	      <div class="popupWindowContent">

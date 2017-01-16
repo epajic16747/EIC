@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2017 at 08:02 PM
+-- Generation Time: Jan 16, 2017 at 10:34 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -64,18 +64,17 @@ CREATE TABLE `event` (
 
 INSERT INTO `event` (`ID`, `korisnik`, `eventName`, `date`, `location`, `type`, `mainEventInfo`, `detailEventInfo`, `image`) VALUES
 (1, 1, 'Deep Purple', '2017-01-27', 'Sarajevo', 'KOncert', 'Samo Hajc samo show', 'Samo Hajc samo show', '/images/left-arrow-gray-hi.png'),
-(2, 1, 'Deep Purple', '2017-01-27', 'Zagreb', 'Concert', 'Deep Purple concert Zagreb 2017\r\n', 'Deep Purple concert Zagreb 2017. Prvi put', ''),
-(3, 1, 'Iron Maiden', '2017-01-12', 'BiH', 'Concert', 'Iron maiden Sarajevo 2018\r\n', 'Iron maiden Sarajevo 2018 Sarajevo oleee', ''),
-(4, 1, 'Iron Maiden1', '2017-01-29', 'BiH1', 'Concert1', 'Iron maiden Sarajevo 20181\r\n', 'Iron maiden Sarajevo 20128 Sarajevo oleee', ''),
-(5, 1, 'Rainbow concert', '2017-01-30', 'Sarajevo', 'Spektakl', 'Samo hajc samo show\r\n', 'Catch the Rainbow', ''),
-(6, 1, 'Kerim', '2017-01-30', 'Sedrenik', 'Spektakl', 'Samo hajc samo show\r\n', 'Catch the Rainbow', ''),
 (7, 1, 'Deep Purple', '2017-01-27', 'Zagreb', 'Concert', 'Deep Purple concert Zagreb 2017\r\n', 'Deep Purple concert Zagreb 2017. Prvi put', 'deepPurple.png'),
 (8, 1, 'Iron Maiden', '2017-01-12', 'BiH', 'Concert', 'Iron maiden Sarajevo 2018\r\n', 'Iron maiden Sarajevo 2018 Sarajevo oleee', 'IronMaiden2.png'),
 (9, 1, 'Iron Maiden1', '2017-01-29', 'BiH1', 'Concert1', 'Iron maiden Sarajevo 20181\r\n', 'Iron maiden Sarajevo 20128 Sarajevo oleee', 'rainbow.png'),
 (10, 1, 'Rainbow concert', '2017-01-30', 'Sarajevo', 'Spektakl', 'Samo hajc samo show\r\n', 'Catch the Rainbow', 'rainbow.png'),
 (11, 1, 'Kerim', '2017-01-30', 'Sedrenik', 'Spektakl', 'Samo hajc samo show\r\n', 'Catch the Rainbow', 'deepPurple2.png'),
 (12, 1, 'Kerim', '2017-01-30', 'Sedrenik', 'Spektakl', 'Samo hajc samo show\r\n', 'Catch the Rainbow', 'IronMaiden3.png'),
-(13, 1, 'Test', '2017-01-27', 'Test', 'Test', 'Test\r\n', 'Test', 'rainbow.png');
+(13, 1, 'Test', '2017-01-27', 'Test', 'Test', 'Test\r\n', 'Test', 'rainbow.png'),
+(14, 1, 'Kumova svadba', '2017-01-31', 'Sarajevo', 'Svadba', 'Samo hajc samo show', 'Tesko meni sa tobom', 'Dark_Side_of_the_Moon.png'),
+(15, 1, 'Pink Floyd', '2017-02-16', 'Sarajevo', 'Concert', 'Time song', 'Tesko meni sa tobom', 'Dark_Side_of_the_Moon.png'),
+(16, 1, 'Pink Floyd 2', '2017-02-21', 'Mostar', 'Concert', 'Time song', 'Tesko meni sa tobom', 'IronMaiden2.png'),
+(17, 1, 'Kerim', '2017-01-30', 'Sedrenik', 'Spektakl', 'Samo hajc samo show\r\n', 'Catch the Rainbow', '');
 
 -- --------------------------------------------------------
 
@@ -97,7 +96,9 @@ CREATE TABLE `korisnik` (
 INSERT INTO `korisnik` (`id`, `username`, `email`, `password`) VALUES
 (1, 'pajson', 'enis.pajic1@gmail.com', '159632'),
 (9, 'dsada', 'dsadsada', 'dasdadad'),
-(10, '', '', '');
+(10, '', '', ''),
+(11, 'Enis', 'epajic@gmail.com', '159632147'),
+(12, 'sdas', 'dasda', 'dsadsadda');
 
 -- --------------------------------------------------------
 
@@ -161,12 +162,12 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `korisnik`
 --
 ALTER TABLE `korisnik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `rate`
 --

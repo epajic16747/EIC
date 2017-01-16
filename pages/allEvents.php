@@ -101,7 +101,7 @@
 				foreach ($rezultat as $event) {
 					print '<div class="event">
 							<h2>'.$event['eventName'].'</h2>
-								<div class="row">
+								<div class="row" id = "paja">
 								<div class="image-eventInfo">
 
 									<div class="event_image">
@@ -123,6 +123,18 @@
 								</div>
 								</div>
 							</div>';
+							if(isset($_SESSION['username']))
+				            {	
+				            	$index= "index.php";
+				                
+				                print '<div class="row" align="center">
+					        <form method="post">
+					        <div id="searchButton"> <button onclick="javascript:location.href=\'.$index.\'">Delete</button></div><br>
+					        <div id="searchButton1"> <button onclick="javascript:location.href=\'.$index.\'">Edit</button></div></form>
+					        </div>';
+					    	}
+
+
 				}
 			}     
 /*
@@ -168,7 +180,7 @@
 			
 		</div>
 		<div class="footer">  
-			<a href=index.html >WT project v3.0 Spirala I </a> 
+			<a href=index.php >WT project v4.0 Spirala IV </a> 
 		</div><!--close footer-->	
 	</div>		
 

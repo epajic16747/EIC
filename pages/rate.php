@@ -123,13 +123,26 @@
 
 <?php
 	if(isset($_POST['rateEventButton'])){
-		$xml = new  DomDocument("1.0", "UTF-8");
-		$xml->load('EventRates.xml');
+
+		$veza = new PDO ("mysql:dbname=eic;host=localhost;charset=utf8", "admin" ,"admin");
+		$veza->exec("set names utf8");
 
 		$eRateName =  htmlspecialchars($_POST['eventRateName']);
 		$eRateValue =  htmlspecialchars($_POST['rateValue']);
 		
+    	$rezultat = $veza->query("SELECT eventID, rateValue 
+    							  FROM rate");
 
+    	if($rezultat ->rowCount() == 0){          //if ne treba ,ali eto 
+    		$rezultat = $veza->prepare("INSERT INTO rate (eventID,	rateValue) VALUES(:eventID,	:rateValue)");
+    		$rezultat->execute(array("eventID"=>$eRateName,"rateValue"=>$eRateValue));
+
+    		echo "Rate added to database!<br>";	
+    	}
+    	
+		else{
+			echo "Rate already in database!<br>";	
+		}/*
 		$rootTag = $xml->getElementsByTagName("root")->item(0);
 		$infoTag = $xml->createElement("eventRate");
 
@@ -143,7 +156,7 @@
 
 		$rootTag->appendChild($infoTag);
 		$xml->save('EventRates.xml');
-
+*/
 	}
 ?>	
 
