@@ -111,12 +111,15 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
           -Dodane su 2 nove forme 
           -Postoji link koji prebacuje sve XML fajlove na bazu 
           -Podaci za event-ove se cuvaju i kupe iz baze
+          -Deployment
+          -Rest metoda
+          -Izvjestaj
 
      II)Nije uradjeno:
-          -Deployment(bice sutra nekad)
-          -Web serbis(sutra takodjer)
+         
+
      IV) (Bug-ovi koje ste primijetili ali ne znate rješenje):
-          -/
+          
      V) Novi folderi:
           Folder phpMyAdmin za bazu
 
@@ -126,7 +129,9 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
                         -rate.php
                         -xmlTODB.php
                         -AllUsers.xml(zbog nove forme)
+                        -webServisRest.php(rest metoda za web servis)
           eic.sql (baza)
+          IzvjestajPOSTMAN.pdf(Testirali samo 3 razicina nacina upotrebe web servisa koristeci POSTMAN)
           
           Deployment : http://eic16747-tesla23.44fs.preview.openshiftapps.com/pages (stari link)
           
