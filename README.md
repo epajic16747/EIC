@@ -119,7 +119,10 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
          
 
      IV) (Bug-ovi koje ste primijetili ali ne znate rješenje):
-          
+        Ne radi baza nikako na openshiftu :
+        a)Kad pokusam sa uputama kao na c2 dobijem sljedeci error : http://prntscr.com/dwktyq
+        b)Preko openshifta kada napravim ne mogu se logovati na myPhpAdmin : http://prntscr.com/dwkw5a
+        c) I ovo se zna desiti : http://prntscr.com/dwkz92
      V) Novi folderi:
           Folder phpMyAdmin za bazu
 
@@ -133,7 +136,7 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
           eic.sql (baza)
           IzvjestajPOSTMAN.pdf(Testirali samo 3 razicina nacina upotrebe web servisa koristeci POSTMAN)
           
-          Deployment : http://eic16747-tesla23.44fs.preview.openshiftapps.com/pages (stari link)
+          Deployment : http://eic16747-zadnjiputsamovdedruze12.44fs.preview.openshiftapps.com/pages/
           
 
 
