@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2017 at 10:49 PM
+-- Generation Time: Jan 16, 2017 at 10:34 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `eic`
 --
-CREATE DATABASE IF NOT EXISTS `eic` DEFAULT CHARACTER SET utf8 COLLATE utf8_slovenian_ci;
-USE `eic`;
 
 -- --------------------------------------------------------
 
