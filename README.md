@@ -138,6 +138,6 @@ V)   Lista fajlova u formatu NAZIVFAJLA - Opis u vidu jedne rečenice šta se u 
           
           Deployment : http://eic16747-zadnjiputsamovdedruze12.44fs.preview.openshiftapps.com/pages/
           
-
+          Nakon OpenShift update-a : http://eic16747-eventinfocenter23.44fs.preview.openshiftapps.com/pages/
 
      
